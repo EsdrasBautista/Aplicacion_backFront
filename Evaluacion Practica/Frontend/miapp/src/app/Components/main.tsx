@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthProvider';
 import Layout from '@/app/Components/layout';
 
-const main: React.FC = () => {
+const MainPage: React.FC = () => {
   const { nameUser } = useAuth();
   const router = useRouter();
 
@@ -38,4 +38,4 @@ const main: React.FC = () => {
   );
 };
 
-export default main;
+export default MainPage;

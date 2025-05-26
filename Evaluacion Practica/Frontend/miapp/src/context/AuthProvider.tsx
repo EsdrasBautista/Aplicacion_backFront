@@ -1,5 +1,5 @@
 'use client'
-import React, {createContext, use, useContext, useEffect, useState} from 'react';
+import React, {createContext, useContext, useEffect, useState} from 'react';
 import { AuthContextType } from '@/types/auth';
 import Swal from 'sweetalert2';
 import { User } from '@/types/productTypes';
@@ -23,7 +23,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const [lengthuSers, setLengthUsers] = useState<number>(0);
     const router = useRouter();
 
-    
+    const serverIP = typeof window !== "undefined" ? localStorage.getItem("serverIP") || "" : "localhost:5000";
+    const baseURL = `http://${serverIP}:5000`;
+
 
    useEffect(() => {
         const IsAuthenticated = localStorage.getItem("isAuthenticated");
@@ -45,7 +47,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const handleRegisterUsuario = async (newUser: Partial<User>): Promise<{success: boolean, message: string}> => {
 
         try{
-            const response = await fetch(`http://localhost:5000/auth/register`, {
+            const response = await fetch(`${baseURL}/auth/register`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 credentials: 'include',
@@ -81,7 +83,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     //Iniciar sesion
     const handleLogin = async (email: string, password: string): Promise<{success: boolean, message: string}> => {
         try {
-            const response = await fetch(`http://localhost:5000/auth/login`, {
+            const response = await fetch(`${baseURL}/auth/login`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 credentials: 'include',
@@ -157,7 +159,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const getFilterUsuarios = async (fecha_nacimiento: string, order: string): Promise<void> => {
         const token = localStorage.getItem("token");
         try{
-            const response = await fetch(`http://localhost:5000/users/filter`, {
+            const response = await fetch(`${baseURL}/users/filter`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json' , 'Authorization': `Bearer ${token}`},
                 credentials: 'include',

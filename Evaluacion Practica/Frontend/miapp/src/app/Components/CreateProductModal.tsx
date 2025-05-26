@@ -3,7 +3,6 @@ import { CreateProductModalProps } from "@/types/productTypes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTag, faBarcode, faInfoCircle, faIndustry, faTimes, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
-import { useRouter } from "next/navigation";
 
 export const CreateModalProduct: React.FC<CreateProductModalProps> = ({ onCloseProduct, onSubmitProduct }) => {
     const [descripcion, setDescripcion] = useState("");
@@ -12,7 +11,6 @@ export const CreateModalProduct: React.FC<CreateProductModalProps> = ({ onCloseP
     const [Ean_number, setEanNumber] = useState("");
     const [imagen, setImagen] = useState("");
     const [Oem, setOem] = useState("");
-    const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -21,9 +19,9 @@ export const CreateModalProduct: React.FC<CreateProductModalProps> = ({ onCloseP
             const result = await onSubmitProduct({ descripcion, imagen, marca, especificaciones, Ean_number, Oem });
             if (result.success) {
                 onCloseProduct();
-                //router.push("/");
             }
         } catch (error) {
+            console.log(error)
             Swal.fire({
                 icon: "error",
                 title: "Error al crear",

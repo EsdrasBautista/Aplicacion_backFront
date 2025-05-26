@@ -1,4 +1,5 @@
 export interface Producto{
+    id: number;
     marca: string;
     Ean_number: string;
     Oem: string;
@@ -12,6 +13,8 @@ export interface User{
   email:string;
   password:string;
   fecha_nac: string;
+  fecha_creacion: string;
+  id: number;
 }
 
 export interface LayoutProps {

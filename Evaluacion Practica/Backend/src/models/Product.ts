@@ -25,6 +25,7 @@ export const filterProductos = async(opciones: ProductFilter) => {
 };
 
 export const agregarProducto = async(products: Producto) =>{
+    console.log('agregarProducto', products);
     const query = 'INSERT INTO productos(marca,Ean_number,Oem,imagen,especificaciones,descripcion) VALUES(?, ?, ?, ?, ?, ?)';
     const params : any[] = [];
     params.push(products.marca,products.Ean_number,products.Oem,products.imagen,products.especificaciones,products.descripcion);

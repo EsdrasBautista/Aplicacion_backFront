@@ -4,6 +4,7 @@ import Layout from '@/app/Components/layout';
 import { useProductAuth } from '@/context/ProductProvider';
 import React, { useState } from 'react';
 import { CreateModalProduct } from '../Components/CreateProductModal';
+import { Producto } from '@/types/productTypes';
 
 const FiltroProductos: React.FC = () => {
     const [codigo, setCodigo] = useState('');
@@ -87,7 +88,7 @@ const FiltroProductos: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
-                {productosPaginados.map((producto: any) => (
+                {productosPaginados.map((producto: Producto) => (
                     <CardProducto
                         key={producto.id}
                         imagen={producto.imagen}

@@ -29,7 +29,7 @@ export const addProduct = async(req:Request, res: Response) => {
     try{
         const {marca, Ean_number,Oem,imagen, especificaciones, descripcion} = req.body;
         const verificar = await verificarDuplicadoProducto(Ean_number,Oem);
-        if(!verificar){
+        if(verificar){
             res.status(404).json({ message: 'Error!, Ean number o Oem ya existen.' });
             return;
         }

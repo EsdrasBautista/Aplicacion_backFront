@@ -5,6 +5,7 @@ import { useAuth } from '@/context/AuthProvider';
 import React, { useState } from 'react';
 import { CreateModalProduct } from '../Components/CreateProductModal';
 import { useProductAuth } from '@/context/ProductProvider';
+import { User } from '@/types/productTypes';
 
 const FiltroUsuarios: React.FC = () => {
     const [mesNacimiento, setMesNacimiento] = useState('');
@@ -104,12 +105,12 @@ const FiltroUsuarios: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
-                {usuariosPaginados.map((user: any) => (
+                {usuariosPaginados.map((user: User) => (
                     <CardUsuario
                         key={user.id}
                         username={user.username}
                         email={user.email}
-                        fecha_nacimiento={user.fecha_nacimiento}
+                        fecha_nacimiento={user.fecha_nac}
                         fecha_creacion={user.fecha_creacion}
                     />
                 ))}

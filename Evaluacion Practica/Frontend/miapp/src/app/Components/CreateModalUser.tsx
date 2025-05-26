@@ -1,7 +1,6 @@
 import React from "react";
 import { CreateUserModalProps } from "@/types/productTypes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
 import { useState } from "react";
 import { faUser, faEnvelope, faLock, faPaperPlane, faTimes, faCalendar } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
@@ -29,6 +28,7 @@ export const CreateModalUser: React.FC<CreateUserModalProps> = ({ onCloseUser, o
                 router.push('/');
             }
         } catch (error) {
+            console.log(error);
             Swal.fire({
                 icon: "error",
                 title: "Error al crear",
