@@ -10,7 +10,7 @@ export const CreateModalUser: React.FC<CreateUserModalProps> = ({ onCloseUser, o
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [fecha_nac, setfecha_nac] = useState("");
+    const [fecha_nacimiento, setfecha_nac] = useState("");
     const router = useRouter();
 
     const formatFechaNacimiento = (fecha: string): string => {
@@ -21,8 +21,8 @@ export const CreateModalUser: React.FC<CreateUserModalProps> = ({ onCloseUser, o
         e.preventDefault();
 
         try {
-            const fechaFormateada = fecha_nac.includes('/') ? formatFechaNacimiento(fecha_nac) : fecha_nac;
-            const result = await onSubmitUser({ username, email, password, fecha_nac: fechaFormateada });
+            const fechaFormateada = fecha_nacimiento.includes('/') ? formatFechaNacimiento(fecha_nacimiento) : fecha_nacimiento;
+            const result = await onSubmitUser({ username, email, password, fecha_nacimiento: fechaFormateada });
             if (result.success) {
                 onCloseUser();
                 router.push('/');
@@ -104,7 +104,7 @@ export const CreateModalUser: React.FC<CreateUserModalProps> = ({ onCloseUser, o
                         <input
                             type="date"
                             id="birthDate"
-                            value={fecha_nac}
+                            value={fecha_nacimiento}
                             onChange={(e) => setfecha_nac(e.target.value)}
                             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
                             required

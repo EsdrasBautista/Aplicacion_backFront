@@ -1,13 +1,12 @@
 import { CarProductoProps } from "@/types/auth";
 import React from "react";
-import Image  from "next/image";
 
 const CardProducto: React.FC<CarProductoProps> = ({ imagen, descripcion, especificaciones, marca, ean_number, oem }) => {
     return (
         <div className="bg-white rounded-3xl shadow-2xl p-6 text-base flex flex-col justify-between h-full cursor-pointer hover:shadow-3xl transition duration-200">
             <div className="flex justify-center mb-4">
-                {/*<img src={imagen} alt={"imagen del producto"} className="h-32 object-contain" />*/}
-                <Image src={imagen} alt="imagen del producto" width={128}  height={128} className="object-contain h-32 w-auto"/>
+                <img src={imagen} alt={"imagen del producto"} className="h-32 object-contain" />
+                {/*<Image src={imagen} alt="imagen del producto" width={128}  height={128} className="object-contain h-32 w-auto"/>*/}
             </div>
 
             <h2 className="font-semibold text-indigo-700 text-lg">{descripcion}</h2>

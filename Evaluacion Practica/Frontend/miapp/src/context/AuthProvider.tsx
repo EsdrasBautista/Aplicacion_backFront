@@ -51,7 +51,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 credentials: 'include',
-                body: JSON.stringify({ username: newUser.username, email: newUser.email, password: newUser.password, fecha_nacimiento: newUser.fecha_nac }),
+                body: JSON.stringify({ username: newUser.username, email: newUser.email, password: newUser.password, fecha_nacimiento: newUser.fecha_nacimiento }),
                 });
                 const data = await response.json();
                 if (!response.ok) {
@@ -67,7 +67,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
                     localStorage.setItem("username", data.username);
                     setTimeout(() => {
                         setLoading(false);
-                    }, 2500);
+                    }, 3100);
                     
                     return {success: true, message:data.message}
                 }
@@ -158,6 +158,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const getFilterUsuarios = async (fecha_nacimiento: string, order: string): Promise<void> => {
         const token = localStorage.getItem("token");
+        if(fecha_nacimiento === "" || order === ""){
+            ErrorMessage("Por favor, completa todos los campos");
+            return;
+        }
         try{
             const response = await fetch(`${baseURL}/users/filter`, {
                 method: 'POST',
@@ -174,8 +178,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
                 sinUsuarios();
                 return;
             }
+            console.log(data.registros);
             setFilterUsers(data.registros);
             setLengthUsers(data.lengthUser);
+            console.log("Usuarios filtrados: ", filterUsers);
             SuccesMessage2("Usuarios filtrados Correctamente");
 
 

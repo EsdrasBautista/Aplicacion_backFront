@@ -73,6 +73,10 @@ export const ProductProviderContext: React.FC<{ children: React.ReactNode }> = (
     //obtener productos filtrados por codigo y marca
     const getfilterProductos = async (code: string, marca: string, order: string): Promise<void> => {
         const token = localStorage.getItem("token");
+        if (code === "" || marca === "" || order === "") {
+            ErrorMessage('Error', 'Por favor, completa todos los campos');
+            return;
+        }
         try {
             const response = await fetch(`${baseURL}/products/filterProduct`, {
                 method: 'POST',

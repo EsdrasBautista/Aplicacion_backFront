@@ -3,7 +3,6 @@ import Layout from "./Components/layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { faEnvelope, faLock, faPaperPlane, faUser } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
 import { AuthProvider, useAuth } from "@/context/AuthProvider";
 import { ProductProviderContext, useProductAuth } from "@/context/ProductProvider";
 import { CreateModalUser } from "./Components/CreateModalUser";
@@ -130,7 +129,7 @@ function HomeContent() {
                     </form>
                     <div className="mt-4 text-center">
 
-                        <p className="text-gray-600">¿No tienes una cuenta? <Link href="/pages/create" className="text-indigo-600 hover:underline">Registrate</Link></p>
+                        <p className="text-gray-600">¿No tienes una cuenta? <button onClick={openeModalUser} className="text-indigo-600 hover:underline">Registrate</button></p>
                     </div>
                 </div>
                 <div

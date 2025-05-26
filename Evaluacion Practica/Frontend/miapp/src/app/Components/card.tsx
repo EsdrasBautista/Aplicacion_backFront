@@ -2,6 +2,7 @@ import { CardUsuarioProps } from "@/types/auth";
 import React from "react";
 
 const CardUsuario: React.FC<CardUsuarioProps> = ({ username, email, fecha_nacimiento, fecha_creacion }) => {
+    console.log("Fecha de nacimiento:", fecha_nacimiento);
     return (
         <div className="bg-white rounded-3xl shadow-2xl p-8 text-base flex flex-col justify-between h-full cursor-pointer hover:shadow-3xl transition duration-200 w-30 min-h-50">
             

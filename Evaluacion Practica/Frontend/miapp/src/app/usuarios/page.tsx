@@ -95,7 +95,7 @@ const FiltroUsuarios: React.FC = () => {
 
                 <button
                     onClick={() => {
-                        setPage(1); // Reiniciar a la primera página
+                        setPage(1);
                         getFilterUsuarios(mesNacimiento, order);
                     }}
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition duration-200"
@@ -110,7 +110,7 @@ const FiltroUsuarios: React.FC = () => {
                         key={user.id}
                         username={user.username}
                         email={user.email}
-                        fecha_nacimiento={user.fecha_nac}
+                        fecha_nacimiento={user.fecha_nacimiento}
                         fecha_creacion={user.fecha_creacion}
                     />
                 ))}

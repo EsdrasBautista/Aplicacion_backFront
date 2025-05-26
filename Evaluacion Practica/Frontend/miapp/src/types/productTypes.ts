@@ -12,7 +12,7 @@ export interface User{
   username:string;
   email:string;
   password:string;
-  fecha_nac: string;
+  fecha_nacimiento: string;
   fecha_creacion: string;
   id: number;
 }
