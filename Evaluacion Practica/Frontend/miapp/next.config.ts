@@ -1,16 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**', // acepta cualquier dominio HTTPS
+        hostname: '**',
       },
     ],
   },
-  output: 'export', 
+  output: 'export',
 };
 
 export default nextConfig;
