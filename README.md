@@ -27,6 +27,6 @@ En AWS se creó un bucket S3 en donde se tienen almacenadas una serie de imagene
 Asi mismo se tiene otro bucket S3 en donde esta toda la parte del frontend de este proyecto, el siguiente Link es dondes esta desplegado 
 el frontend del proyecto: http://miapp-app-esdras.s3-website-us-east-1.amazonaws.com
 para iniciar sesion y probar la interfaz y de mas, se puede loggear con el siguiente email: admin@admin.com y password: 123,
-la Ip que se debe de poner en el navbar es:  (se recomienda poner la Ip y luego recargar la pagina).
+la Ip que se debe de poner en el navbar es: 34.227.110.255 (se recomienda poner la Ip y luego recargar la pagina).
 Tambien se creó una instancia EC2 para poder conectarse desde SSH al backend y poder levantarlo desde una terminal de linux en Ubuntu,
 para que nuestro frontend pueda hacer las peticiones al backend adecuadamente.
